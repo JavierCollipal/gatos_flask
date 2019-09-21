@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/gatos_flask.iml" filepath="$PROJECT_DIR$/.idea/gatos_flask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../vue-vuex-typescript/.idea/vue-vuex-typescript.iml" filepath="$PROJECT_DIR$/../vue-vuex-typescript/.idea/vue-vuex-typescript.iml" />
+    </modules>
+  </component>
+</project>
