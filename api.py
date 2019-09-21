@@ -16,6 +16,7 @@ class TodoSimple(Resource):
 
     def post(self):
         todos.append(request.json)
+        return request.json
 
 
 api.add_resource(TodoSimple, '/todos')
