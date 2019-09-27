@@ -35,8 +35,6 @@ class TodoSimple(Resource):
 
 class TodoList(Resource):
     def get(self):
-        todo = Todo(666666666, 'salieron de san isidro', False)
-        todos.append(todo)
         schema = TodoSchema()
         result = schema.dump(todos, many=True)
         return result
