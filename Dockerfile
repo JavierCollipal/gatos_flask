@@ -10,4 +10,4 @@ COPY . .
 ENTRYPOINT ["python"]
 EXPOSE 6000
 
-CMD [ "app.py"]
+CMD [ "api.py"]
