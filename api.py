@@ -40,7 +40,7 @@ class TodoList(Resource):
         return result
 
     def post(self):
-        test = request.get_json();
+        test = request.get_json()
         todo = Todo(test['id'], test['text'], test['done'])
         todos.append(todo)
         schema = TodoSchema()
@@ -51,4 +51,4 @@ class TodoList(Resource):
 api.add_resource(TodoSimple, '/todos/<todo_id>')
 api.add_resource(TodoList, '/todos')
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=6000, debug=True)
