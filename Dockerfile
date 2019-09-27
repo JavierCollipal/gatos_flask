@@ -8,6 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 ENTRYPOINT ["python"]
-EXPOSE 6000
+EXPOSE 8090
 
 CMD [ "api.py"]

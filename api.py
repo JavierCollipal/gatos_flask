@@ -35,6 +35,8 @@ class TodoSimple(Resource):
 
 class TodoList(Resource):
     def get(self):
+        todo = Todo(666666666, 'salieron de san isidro', False)
+        todos.append(todo)
         schema = TodoSchema()
         result = schema.dump(todos, many=True)
         return result
@@ -51,4 +53,4 @@ class TodoList(Resource):
 api.add_resource(TodoSimple, '/todos/<todo_id>')
 api.add_resource(TodoList, '/todos')
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=6000, debug=True)
+    app.run(host="0.0.0.0", port=8090, debug=True)
