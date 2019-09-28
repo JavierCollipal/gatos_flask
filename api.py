@@ -25,12 +25,31 @@ class TodoSchema(Schema):
 todos = []
 
 
+def get_todo_index(id: int):
+    for i, e in enumerate(todos):
+        if e.id == id:
+            return i
+    return False
+
+
 class TodoSimple(Resource):
     def get(self, todo_id):
         pass
 
     def delete(self, todo_id):
-        return '', 204
+        todo_index = get_todo_index(todo_id)
+        if todo_index is False:
+            return 'no existe el todo'
+
+        return 204
+
+    def put(self, todo_id):
+        data = request.get_json()
+        todo_index = get_todo_index(todo_id)
+        if todo_index is False:
+            return 'no existe el todo'
+        todos[todo_index] = Todo(data['id'], data['text'], data['done'])
+        return 200
 
 
 class TodoList(Resource):
@@ -45,10 +64,14 @@ class TodoList(Resource):
         todos.append(todo)
         schema = TodoSchema()
         result = schema.dump(todo)
-        return result
+        return result, 201
+
+    def delete(self):
+        todos = []
+        return 200
 
 
-api.add_resource(TodoSimple, '/todos/<todo_id>')
+api.add_resource(TodoSimple, '/todos/<int:todo_id>')
 api.add_resource(TodoList, '/todos')
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8090, debug=True)
