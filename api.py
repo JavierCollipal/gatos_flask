@@ -40,7 +40,7 @@ class TodoSimple(Resource):
         todo_index = get_todo_index(todo_id)
         if todo_index is False:
             return 'no existe el todo'
-
+        del todos[todo_index]
         return 204
 
     def put(self, todo_id):
